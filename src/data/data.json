@@ -1,0 +1,64 @@
+{
+  "Testimonials" : [
+    {
+      "img": "img/testimonials/01.png",
+      "text": "The stock market navigator is an incredible tool. It has completely changed the way I approach trading.",
+      "name": "Amit Verma"
+    },
+    {
+      "img": "img/testimonials/02.png",
+      "text": "Using this platform, I've seen a significant improvement in my trading performance. The real-time data and trend analysis make all the difference.",
+      "name": "Riya Sharma"
+    },
+    {
+      "img": "img/testimonials/01.png",
+      "text": "The stock market navigator has made trading so much easier for me. I used to struggle with tracking trends and making decisions, but not anymore. Thanks to this platform!",
+      "name": "Rajesh Patel"
+    },
+    {
+      "img": "img/testimonials/02.png",
+      "text": "This platform is a game-changer for anyone in the stock market. It's user-friendly and accessible, and it has boosted my confidence in trading.",
+      "name": "Anjali Singh"
+    },
+    {
+      "img": "img/testimonials/01.png",
+      "text": "I'm truly impressed with the stock market navigator. It's a must-have for anyone serious about trading. It simplifies complex data and trends.",
+      "name": "Vikram Khanna"
+    },
+    {
+      "img": "img/testimonials/02.png",
+      "text": "I've tried various trading platforms, but this one stands out. The real-time data is a game-changer, and I've seen an improvement in my profits.",
+      "name": "Sneha Kapoor"
+    }
+  ],
+  "Contact": {
+    "address": "4321 California St, San Francisco, CA 12345 ",
+    "phone": "+1 123 456 1234",
+    "email": "info@company.com",
+    "facebook": "fb.com",
+    "twitter": "twitter.com",
+    "youtube": "youtube.com"
+  },
+  "Features": [
+    {
+      "icon": "fa fa-comments-o",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-bullhorn",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-magic",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ef0d47c3.css",
+    "main.js": "/static/js/main.71c6d05e.js",
+    "static/media/intro-bg.mp4": "/static/media/intro-bg.63d0fddb310ff753dec5.mp4",
+    "static/media/netWorth.PNG": "/static/media/netWorth.5ab7b245b228065ef028.PNG",
+    "static/media/02.png": "/static/media/02.ac9abbec51fcf330340c.png",
+    "static/media/01.png": "/static/media/01.71ba98aebc681fa0081f.png",
+    "static/media/overallProfit.JPEG": "/static/media/overallProfit.9f1ae9ef8ef34d15c82a.JPEG",
+    "static/media/smn.JPEG": "/static/media/smn.feb6266c66706c01e4da.JPEG",
+    "static/media/logo.png": "/static/media/logo.158c2b424c1ecc52ddda.png",
+    "index.html": "/index.html",
+    "main.ef0d47c3.css.map": "/static/css/main.ef0d47c3.css.map",
+    "main.71c6d05e.js.map": "/static/js/main.71c6d05e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ef0d47c3.css",
+    "static/js/main.71c6d05e.js"
+  ]
+}
