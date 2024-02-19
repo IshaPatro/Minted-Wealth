@@ -3,6 +3,7 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import { Navigation } from "./navigationBar";
+import { ClipLoader } from 'react-spinners';
 
 const filterParams = {
   comparator: (filterLocalDateAtMidnight, cellValue) => {
@@ -28,13 +29,16 @@ const filterParams = {
 const StockMarketNavigator = () => {
   const gridStyle = { height: '85%', width: '100%', marginTop: '7%' };
   const [rowData, setRowData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const ColourCellRenderer = props => {
-    if(props.value>=0){
-        return <span style={{color: '#008000'}}>{props.value}</span>;
+    if (props.value >= 0) {
+      return <span style={{ color: '#008000' }}>{props.value}</span>;
     } else {
-        return <span style={{color: '#FF0000'}}>{props.value}</span>;
+      return <span style={{ color: '#FF0000' }}>{props.value}</span>;
     }
   }
+
   const [columnDefs] = useState([
     { field: 'Symbol', minWidth: 150 },
     { field: 'Company Name', minWidth: 300, pinned: 'left' },
@@ -65,11 +69,13 @@ const StockMarketNavigator = () => {
         const response = await fetch('https://sheetdb.io/api/v1/s1hhxy89t9nm6?ignore_cache=1');
         const data = await response.json();
         setRowData(data);
-        console.log(data);
+        setLoading(false);  // Set loading to false after data is fetched
       } catch (error) {
         console.error('Error fetching data:', error);
+        setLoading(false);  // Set loading to false on error
       }
     };
+
     fetchData();
   }, []);
 
@@ -84,24 +90,33 @@ const StockMarketNavigator = () => {
   };
 
   const onGridReady = useCallback((params) => {
-      fetch('https://sheetdb.io/api/v1/s1hhxy89t9nm6')
-        .then((resp) => resp.json())
-        .then((data) => {
-          setRowData(data);
-        });
-    }, []);
+    fetch('https://sheetdb.io/api/v1/s1hhxy89t9nm6')
+      .then((resp) => resp.json())
+      .then((data) => {
+        setRowData(data);
+        setLoading(false);  // Set loading to false after data is fetched
+      });
+  }, []);
 
   return (
     <div>
-      <Navigation/>
-      <div style={gridStyle} className="ag-theme-alpine-dark">
-        <AgGridReact
-          rowData={rowData}
-          columnDefs={columnDefs}
-          defaultColDef={defaultColDef}
-          onGridReady={onGridReady}
-        />
-      </div>
+      <Navigation />
+      {loading ? (
+        // Show loader while data is being fetched
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <ClipLoader color="#00BFFF" loading={loading} size={80} />
+        </div>
+      ) : (
+        // Show the grid once data is fetched
+        <div style={gridStyle} className="ag-theme-alpine-dark">
+          <AgGridReact
+            rowData={rowData}
+            columnDefs={columnDefs}
+            defaultColDef={defaultColDef}
+            onGridReady={onGridReady}
+          />
+        </div>
+      )}
     </div>
   );
 };
