@@ -33,71 +33,73 @@ export const NetWorthSummary = ({ assets, liabilities, netWorthData }) => {
   );
 
   const assetsLiabilitiesChartOptions = {
-    chart: {
-      id: "assets-liabilities-chart",
-      toolbar: {
-        show: false,
+      chart: {
+        id: "assets-liabilities-chart",
+        toolbar: {
+          show: false,
+        },
+        background: 'black', // Set the background color to black
       },
-    },
-    xaxis: {
-      categories: netWorthData[0].years.map(String),
-    },
-    colors: ['#00FF00', '#FF0000'],
-    tooltip: {
-      enabled: true,
-      style: {
-        background: '#000',
-      },
-    },
-    theme: {
-      mode: 'dark',
-    },
-    plotOptions: {
       xaxis: {
-        lines: {
-          show: true,
+        categories: netWorthData[0].years.map(String),
+      },
+      colors: ['#00FF00', '#FF0000'],
+      tooltip: {
+        enabled: true,
+        style: {
+          background: '#000',
         },
       },
-      grid: {
-        borderColor: ['#000']
+      theme: {
+        mode: 'dark',
       },
-      dataLabels: {
-        enabled: true,
+      plotOptions: {
+        xaxis: {
+          lines: {
+            show: true,
+          },
+        },
+        grid: {
+          borderColor: ['#000']
+        },
+        dataLabels: {
+          enabled: true,
+        },
       },
-    },
-  };
+    };
 
-  const netWorthChartOptions = {
-    chart: {
-      id: "net-worth-chart",
-      toolbar: {
-        show: false,
-      },
-    },
-    xaxis: {
-      categories: netWorthData[0].years.map(String),
-    },
-    colors: ['#800080'],
-    tooltip: {
-      enabled: true,
-    },
-     theme: {
-       mode: 'dark',
-     },
-    plotOptions: {
-      xaxis: {
-        lines: {
-          show: true,
+    const netWorthChartOptions = {
+      chart: {
+        id: "net-worth-chart",
+        toolbar: {
+          show: false,
         },
+        background: 'black', // Set the background color to black
       },
-      grid: {
-        borderColor: 'black',
+      xaxis: {
+        categories: netWorthData[0].years.map(String),
       },
-      dataLabels: {
+      colors: ['#800080'],
+      tooltip: {
         enabled: true,
       },
-    },
-  };
+       theme: {
+         mode: 'dark',
+       },
+      plotOptions: {
+        xaxis: {
+          lines: {
+            show: true,
+          },
+        },
+        grid: {
+          borderColor: 'black',
+        },
+        dataLabels: {
+          enabled: true,
+        },
+      },
+    };
 
   return (
     <Row>
