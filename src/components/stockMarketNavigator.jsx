@@ -39,12 +39,26 @@ const StockMarketNavigator = () => {
     }
   }
 
+  const ColourCellRendererPercentage = props => {
+    if (props.value >= 0) {
+        return <span style={{ color: '#008000' }}>{props.value}%</span>;
+    } else {
+        return <span style={{ color: '#FF0000' }}>{props.value}%</span>;
+    }
+  }
+
+  const formatPercentage = (params) => {
+    return params.value != null ? params.value+'%' : '';
+  };
+
   const [columnDefs] = useState([
     { field: 'Symbol', minWidth: 150 },
     { field: 'Company Name', minWidth: 300, pinned: 'left' },
     { field: 'Price', minWidth: 100 },
+    { field: 'Change', minWidth: 150, cellRenderer: ColourCellRenderer },
+    { field: 'Change%', minWidth: 150, cellRenderer: ColourCellRendererPercentage },
     { field: 'Open', minWidth: 100 },
-    { field: 'Close', minWidth: 100 },
+    { field: 'Prev Close', minWidth: 150 },
     { field: 'Day High', minWidth: 150 },
     { field: 'Day Low', minWidth: 150 },
     { field: '52 Week High', minWidth: 150 },
@@ -53,20 +67,19 @@ const StockMarketNavigator = () => {
     { field: 'EPS', minWidth: 150 },
     { field: 'Market Cap', minWidth: 150 },
     { field: 'Volume', minWidth: 150 },
-    { field: 'Prev Close', minWidth: 150},
     { field: 'T-7', minWidth: 150},
     { field: 'T-30', minWidth: 150},
-    { field: 'T-1 Year', minWidth: 150},
-    { field: '1Day Return%', minWidth: 150, cellRenderer: ColourCellRenderer},
-    { field: '1Week Return%', minWidth: 180, cellRenderer: ColourCellRenderer},
-    { field: '1Month Return%', minWidth: 180, cellRenderer: ColourCellRenderer},
-    { field: '1Year Return%', minWidth: 180, cellRenderer: ColourCellRenderer},
+    { field: 'T-1Year', minWidth: 150},
+    { field: '1Day Return%', minWidth: 150, cellRenderer: ColourCellRendererPercentage},
+    { field: '1Week Return%', minWidth: 180, cellRenderer: ColourCellRendererPercentage},
+    { field: '1Month Return%', minWidth: 180, cellRenderer: ColourCellRendererPercentage},
+    { field: '1Year Return%', minWidth: 180, cellRenderer: ColourCellRendererPercentage},
   ]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://sheetdb.io/api/v1/s1hhxy89t9nm6?ignore_cache=1');
+        const response = await fetch('https://sheetdb.io/api/v1/by0ej0n2jv4rf?ignore_cache=1');
         const data = await response.json();
         setRowData(data);
         setLoading(false);  // Set loading to false after data is fetched
@@ -90,7 +103,7 @@ const StockMarketNavigator = () => {
   };
 
   const onGridReady = useCallback((params) => {
-    fetch('https://sheetdb.io/api/v1/s1hhxy89t9nm6')
+    fetch('https://sheetdb.io/api/v1/by0ej0n2jv4rf?ignore_cache=1')
       .then((resp) => resp.json())
       .then((data) => {
         setRowData(data);
