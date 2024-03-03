@@ -62,8 +62,8 @@ export const stockData = [
 ];
 
 export const assetsData = [
-  { type: "Stocks", amount: 50000, cagr: 8, year: 2022, currentValue: 0 },
-  { type: "Real Estate", amount: 100000, cagr: 5, year: 2022, currentValue: 0 },
+  { type: "Fixed Deposits (FDs)", amount: 50000, cagr: 8, year: 2022, currentValue: 0 },
+  { type: "Equities (Stocks)", amount: 100000, cagr: 5, year: 2022, currentValue: 0 },
   { type: "Savings Account", amount: 20000, cagr: 2, year: 2022, currentValue: 0 },
   { type: "Gold", amount: 3000, cagr: 3, year: 2022, currentValue: 0 },
 ];
